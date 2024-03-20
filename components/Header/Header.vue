@@ -1,81 +1,13 @@
 <template>
   <header>
-    <div v-if="windowWidth > 767">
       <v-app-bar app class="customBar">
-        <v-toolbar-title class="logo ml-12" v-if="windowWidth > 967">LOGO</v-toolbar-title>
+        <v-toolbar-title class="logo ml-12" v-if="windowWidth > 967">TORNEO UD</v-toolbar-title>
           <div class="btns mr-12" v-if="windowWidth > 967">
-              <v-btn color="white" class="customBtn" @click="openDialog">Contactanos</v-btn>
-              <v-btn color="white" class="customBtn" @click="handleButtonClick">Boton 2</v-btn>
-              <v-btn color="white" class="customBtn" @click="handleButtonClick">Boton 3</v-btn>
-              <v-btn color="white" class="customBtn" @click="handleButtonClick">Boton 4</v-btn>
-              <v-btn color="white" class="customBtn" @click="handleButtonClick">Boton 5</v-btn>
-              <v-btn color="white" class="customBtn" @click="handleButtonClick">Boton 6</v-btn>
-          </div>
-          <div class="littleSize" v-if="windowWidth <= 967">
-            <v-toolbar-title class="logo ml-12">LOGO</v-toolbar-title>
-            <div class="btns mr-12">
-              <v-btn color="white" class="customBtn" @click="openDialog">Contactanos</v-btn>
-              <v-btn color="white" class="customBtn" @click="handleButtonClick">Boton 2</v-btn>
-              <v-btn color="white" class="customBtn" @click="handleButtonClick">Boton 3</v-btn>
-              <v-btn color="white" class="customBtn" @click="handleButtonClick">Boton 4</v-btn>
-              <v-btn color="white" class="customBtn" @click="handleButtonClick">Boton 5</v-btn>
-              <v-btn color="white" class="customBtn" @click="handleButtonClick">Boton 6</v-btn>
-            </div>
+              <v-btn color="white" class="customBtn" @click="handleButtonClick">Home</v-btn>
+              <v-btn color="white" class="customBtn" @click="handleButtonClick">Tabla</v-btn>
+              <v-btn color="white" class="customBtn" @click="openDialog">Llamame</v-btn>
           </div>
       </v-app-bar>
-    </div>
-    <div v-else>
-      <v-app-bar app class="customBar">
-        <v-row>
-          <v-col
-            cols="12"
-            offset-sm="3"
-            sm="6"
-          >
-            <v-toolbar-title class="logo">Logo</v-toolbar-title>
-            <!-- <v-menu offset-y="1000" location="horizontally"  class="menuList">
-              <template class="containerBurger" v-slot:activator="{ props }">
-                <v-btn icon="mdi-menu" class="burgerIcon" v-bind="props"></v-btn>
-              </template>
-              <v-list>
-                <v-list-item class="listServices"
-                  v-for="(item, i) in items"
-                  :key="i"
-                  >
-                  <v-list-item-title>{{ item.title }}</v-list-item-title>
-                </v-list-item>
-              </v-list>
-            </v-menu> -->
-
-            <!-- Ejemplooooo -->
-
-            <v-menu transition="slide-x-transition">
-              <template v-slot:activator="{ props }">
-                <v-btn
-                  class="burgerIcon"
-                  width="150"
-                  height="30"
-                  color="primary"
-                  v-bind="props"
-                  icon="mdi-menu"
-                >
-                </v-btn>
-              </template>
-              <v-list>
-                <v-list-item
-                  v-for="(item, i) in items"
-                  :key="i"
-                  class="listServices"
-                  @click="handleMenuItemClick(item)"
-                >
-                  <v-list-item-title>{{ item.title }}</v-list-item-title>
-                </v-list-item>
-              </v-list>
-            </v-menu>
-          </v-col>
-        </v-row>
-      </v-app-bar>
-    </div>
     <DialogContactUs ref="dialogComponent"/>
   </header>
 </template>
