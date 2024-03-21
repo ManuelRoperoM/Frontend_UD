@@ -18,8 +18,8 @@ export default {
     return {
       items: [
         { title: 'Noticias' },
-        { title: 'News' },
-        { title: 'Letters' },
+        { title: 'Comienza el torneo' },
+        { title: 'Que gran espectaculo' },
       ],
     };
   },

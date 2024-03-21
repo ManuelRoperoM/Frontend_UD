@@ -7,9 +7,6 @@
         <div class="contentServiceCarousel">
           <CarouselServices/>
         </div>
-        <div class="cardTestimonials">
-            <CardsTestimonios />
-        </div>
       </div>
     </v-app>
 </template>

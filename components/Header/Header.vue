@@ -9,32 +9,28 @@
           </div>
       </v-app-bar>
     <DialogContactUs ref="dialogComponent"/>
+    <Tabla ref="dialogTabla"/>
   </header>
 </template>
 
 <script>
   import DialogContactUs from '~/components/Dialogs/DialogContactUs.vue';
+  import Tabla from '~/components/Dialogs/Tabla.vue';
+  import api from '../plugins/services/api';
   export default {
     components: {
       DialogContactUs,
+      Tabla,
     },
     data() {
       return {
         dialog: false,
         windowWidth: 0,
-        items: [
-          { title: 'Contactanos' },
-          { title: 'Button 2' },
-          { title: 'Button 3' },
-          { title: 'Button 4' },
-          { title: 'Button 5' },
-          { title: 'Button 6' },
-        ],
       };
     },
     methods: {
-      handleButtonClick() {
-        console.log('Botón clicado');
+      async handleButtonClick() {
+        this.$refs.dialogTabla.openDialog();
       },
       openDialog(){
         this.$refs.dialogComponent.openDialog();
@@ -44,21 +40,20 @@
           this.openDialog();
         } else {
           // Puedes agregar lógica para otros elementos del menú aquí
-          console.log(`Clic en ${item.title}`);
         }
       },
       updateWindowWidth() {
         this.windowWidth = window.innerWidth;
-        console.log(this.windowWidth)
       },
       toggleMobileMenu() {
               this.mobileMenu = !this.mobileMenu;
       },
+      },      calcularDiferenciaGol(item) {
+        return item.goles_a_favor - item.goles_en_contra;
       },
     mounted() {
       window.addEventListener('resize', this.updateWindowWidth);
       this.updateWindowWidth();
-      console.log("Holaa")
     },
     beforeDestroy() {
       window.removeEventListener('resize', this.updateWindowWidth);
@@ -81,66 +76,5 @@
   }  
   .v-dialog__content {
     z-index: 9999;
-  }
-  /* Diseño responsive */
-  @media screen and (max-width: 1106px) {
-    .logo {
-      text-align: center;
-      margin-top: 10px;
-    }
-    .customBtn {
-      min-width: auto;
-      margin-top: 10px;
-      margin-bottom: 10px;
-    }
-  }
-
-  @media screen and (max-width: 967px) {
-    .customBar{
-      height: 7.2rem;
-    }
-    .littleSize{
-      width: 100%;
-    }
-    .logo{
-      color: gray;
-      font-size: 2.5rem;
-      font-weight: 1000;
-      line-height: 1.5;
-      margin-top: 65px;
-    }
-    .customBtn {
-      min-width: auto;
-      margin-top: 2px;
-    }
-    .btns{
-      width: 100% !important;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  }
-  @media screen and (max-width: 767px) {
-    .customBar{
-      height: 5.2rem;
-      text-align: center;
-    }
-    .logo{
-      color: gray;
-      font-size: 2.5rem;
-      font-weight: 1000;
-      line-height: 1.5;
-      margin-top: 20px;
-      margin-bottom: 0px;
-    }
-    .burgerIcon{
-      color: gray !important;
-      margin-top: 0px;
-      text-align: center;
-      border-radius: 5%;
-    }
-    .listServices{
-      text-align: center;
-    }
   }
 </style>
